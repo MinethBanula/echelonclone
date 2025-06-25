@@ -174,7 +174,7 @@ export default function Home() {
         <div className="w-full mx-auto gap-12 flex flex-col justify-center items-center relative z-10">
           <div className="space-y-8 animate-fade-in">
             {/* Badge */}
-            <div className="inline-flex items-center mx-auto px-4 py-2 rounded-full bg-primary/10 text-primary w-fit text-sm font-semibold font-montserrat">
+            <div className="inline-flex items-center w-fit mx-auto px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold font-montserrat">
               <Sparkles className="h-4 w-4 mr-2" />
               First Ever Mechanical Engineering Career Fair
             </div>
