@@ -4,36 +4,39 @@ import { Mail, Linkedin, Phone } from "lucide-react";
 export function OrganizingCommittee() {
   const committee = [
     {
-      name: "Govindu Sasanka",
-      role: "Event Coordinator",
-      email: "govindu@echelon25.com",
-      phone: "+94 77 123 4567",
-      linkedin: "#",
-      image: "/placeholder.svg",
+      name: "Janidu Sheahn",
+      role: "Finance Committee Lead",
+      email: "janidushehan09@gmail.com",
+      phone: "+94 77 368 9298",
+      linkedin:
+        "https://www.linkedin.com/in/janidu-shehan-0a9076200/?originalSubdomain=lk",
+      image: "/committee/janidu.jpg",
     },
     {
       name: "Lochinie Rubasinghe",
-      role: "Partnership Lead",
-      email: "lochinie@echelon25.com",
-      phone: "+94 77 234 5678",
-      linkedin: "#",
-      image: "/placeholder.svg",
+      role: "Company Coordination Committee Lead",
+      email: "lochinie510@gmail.com",
+      phone: "+94 77 310 3298",
+      linkedin: "https://lk.linkedin.com/in/lochinie-rubasinghe",
+      image: "/committee/lochinie.jpg",
     },
     {
-      name: "Dr. Samantha Perera",
-      role: "Faculty Advisor",
-      email: "samantha@mrt.ac.lk",
-      phone: "+94 11 265 0301",
-      linkedin: "#",
-      image: "/placeholder.svg",
+      name: "Asiri Sandakelum",
+      role: "Organizing Committee Lead",
+      email: "sadakelumasiri@gmail.com",
+      phone: "+94 71 933 9051",
+      linkedin:
+        "https://www.linkedin.com/in/asiri-sandakelum-b5170a234/?originalSubdomain=lk",
+      image: "/committee/asiri.jpg",
     },
     {
-      name: "Nimal Fernando",
-      role: "Industry Relations",
-      email: "nimal@echelon25.com",
-      phone: "+94 77 345 6789",
-      linkedin: "#",
-      image: "/placeholder.svg",
+      name: "Govindu Sasanka",
+      role: "Organizing Committee Lead",
+      email: "govindusasanka2017@gmail.com",
+      phone: "+94 70 313 4665",
+      linkedin:
+        "https://www.linkedin.com/in/govindu-sasanka-354161235/?trk=public_profile_browsemap&originalSubdomain=lk",
+      image: "/committee/govindu.jpg",
     },
   ];
 
