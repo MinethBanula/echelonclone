@@ -82,25 +82,40 @@ return {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-orange-500 mx-auto mb-4"></div>
-          <p className="text-white text-lg">Loading students...</p>
+  return (
+    <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
+      <div className="text-center">
+        {/* Loading Spinner */}
+        <div className="relative mb-8">
+          <div className="w-16 h-16 border-4 border-gray-200 rounded-full animate-spin border-t-orange-500 mx-auto"></div>
+          <div className="absolute inset-0 w-16 h-16 border-4 border-transparent rounded-full animate-pulse border-t-orange-300 mx-auto opacity-50"></div>
+        </div>
+        
+        {/* Loading Text */}
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold text-gray-800 tracking-wide">
+            Loading
+          </h2>
+          <div className="flex justify-center space-x-1">
+            <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+          </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
-    <div className="min-h-screen bg-gray-900 py-16 px-4">
+    <div className="min-h-screen bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Meet Our <span className="text-orange-500">Talented Students</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            Meet Our <span className="text-primary">Talented Students</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             EESPIRE showcases the brightest minds in electrical engineering.
             Connect with our students to discover their skills, projects, and
             research interests.
@@ -109,11 +124,11 @@ return {
 
         {/* Student Profiles Section */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white text-center mb-2">
+          <h2 className="text-4xl font-bold text-black text-center mb-2">
             Student Profiles
           </h2>
-          <p className="text-gray-400 text-center mb-8">
-            Browse through our electrical engineering talent showcase
+          <p className="text-gray-600 text-center mb-8">
+                        
           </p>
 
           {/* Grid Container */}
@@ -134,16 +149,17 @@ return {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               {/* Previous Button */}
               <button
                 onClick={handlePrevious}
                 disabled={currentPage === 1}
-                className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
+                className={`flex items-center px-5 py-2 rounded-full font-semibold transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFA600] focus:ring-offset-2 border-none ${
                   currentPage === 1
-                    ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                    : "bg-orange-500 hover:bg-orange-600 text-white"
+                    ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    : "bg-primary hover:bg-[#FFA600] text-white hover:scale-105 hover:shadow-lg hover:shadow-[#FFA600]/40 shadow-[#FFA600]/20"
                 }`}
+                style={currentPage === 1 ? {} : { boxShadow: '0 4px 20px 0 #FFA60033' }}
               >
                 <ChevronLeft className="w-5 h-5 mr-1" />
                 Previous
@@ -153,15 +169,17 @@ return {
               <div className="flex gap-2">
                 {[...Array(totalPages)].map((_, index) => {
                   const pageNum = index + 1;
+                  const isActive = currentPage === pageNum;
                   return (
                     <button
                       key={pageNum}
                       onClick={() => handlePageChange(pageNum)}
-                      className={`w-10 h-10 rounded-lg font-medium transition-colors ${
-                        currentPage === pageNum
-                          ? "bg-orange-500 text-white"
-                          : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                      className={`w-10 h-10 rounded-full font-semibold transition-all duration-200 border-none focus:outline-none focus:ring-2 focus:ring-[#FFA600] focus:ring-offset-2 ${
+                        isActive
+                          ? "bg-primary text-white shadow-lg shadow-[#FFA600]/40 scale-110"
+                          : "bg-gray-100 text-gray-700 hover:bg-[#FFA600] hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-[#FFA600]/40"
                       }`}
+                      style={isActive ? { boxShadow: '0 4px 20px 0 #FFA60033' } : {}}
                     >
                       {pageNum}
                     </button>
@@ -173,11 +191,12 @@ return {
               <button
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
-                className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
+                className={`flex items-center px-5 py-2 rounded-full font-semibold transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFA600] focus:ring-offset-2 border-none ${
                   currentPage === totalPages
-                    ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                    : "bg-orange-500 hover:bg-orange-600 text-white"
+                    ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    : "bg-primary hover:bg-[#FFA600] text-white hover:scale-105 hover:shadow-lg hover:shadow-[#FFA600]/40 shadow-[#FFA600]/20"
                 }`}
+                style={currentPage === totalPages ? {} : { boxShadow: '0 4px 20px 0 #FFA60033' }}
               >
                 Next
                 <ChevronRight className="w-5 h-5 ml-1" />

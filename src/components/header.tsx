@@ -11,22 +11,27 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("Home");
+  const pathname = usePathname();
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Partners", href: "/partners" },
-    { name: "About", href: "#about" },
-    {name: "Students", href: "/students"},
-    { name: "Agenda", href: "#agenda" },
+    { name: "Partners", href: "#partners" },
+    { name: "Students", href: "/students" },
     { name: "FAQs", href: "#faqs" },
     { name: "About", href: "#footer" },
   ];
 
   useEffect(() => {
+    // Highlight 'Students' when on /students route
+    if (pathname === "/students") {
+      setActiveNav("Students");
+      return;
+    }
     const handleScroll = () => {
       // Only consider sections that are above the top of the viewport
       const visible = navigation.map((item) => {
@@ -47,7 +52,7 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeNav, navigation]);
+  }, [activeNav, navigation, pathname]);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md supports-[backdrop-filter]:bg-white/40 shadow-lg shadow-black/30 transition-all duration-300">
