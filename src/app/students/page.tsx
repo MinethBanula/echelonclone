@@ -116,7 +116,7 @@ return {
             Meet Our <span className="text-primary">Talented Students</span>
           </h1>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto">
-            ECHELON'25 showcases the brightest minds in mechanical engineering.
+            EESPIRE showcases the brightest minds in electrical engineering.
             Connect with our students to discover their skills, projects, and
             research interests.
           </p>
@@ -128,7 +128,7 @@ return {
             Student Profiles
           </h2>
           <p className="text-gray-600 text-center mb-8">
-                        
+            Meet our department&apos;s talented students
           </p>
 
           {/* Grid Container */}

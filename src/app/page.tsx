@@ -1,41 +1,16 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import {
-  ArrowRight,
-} from "lucide-react";
 import { OrganizingCommittee } from "@/components/organizing-committee";
-import Link from "next/link";
 import Image from "next/image";
-import { useMemo } from "react";
-import Autoplay from "embla-carousel-autoplay";
 
 export default function Home() {
-  const autoplay = useMemo(
-    () =>
-      Autoplay({
-        delay: 2200, // slower speed
-        stopOnInteraction: false,
-        stopOnMouseEnter: false,
-        jump: false,
-      }),
-    []
-  );
-
   const faqs = [
     {
       question: "How do I register for ECHELON 25?",
@@ -62,24 +37,6 @@ export default function Home() {
       answer:
         "Yes, complimentary refreshments will be available throughout the day, including a networking lunch session.",
     },
-  ];
-
-  const partners = [
-    "TechCorp",
-    "InnovateMech",
-    "FutureTech",
-    "EngineerPro",
-    "MechSolutions",
-    "AutoTech",
-  ];
-
-  const partnerImages = [
-    "/logo-banner.jpg",
-    "/logo-banner.jpg",
-    "/logo-banner.jpg",
-    "/logo-banner.jpg",
-    "/logo-banner.jpg",
-    "/logo-banner.jpg",
   ];
 
   return (
@@ -265,11 +222,12 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800 font-montserrat">
             Our Industry Partners
           </h2>
-          <Carousel className="mb-16 max-w-7xl mx-auto py-16 overflow-visible" opts={{ loop: true }} plugins={[autoplay]}>
+        
+          {/* <Carousel className="mb-16 max-w-7xl mx-auto py-16 overflow-visible" opts={{ loop: true }} plugins={[autoplay]}>
             <CarouselContent className="overflow-visible">
               {partners.map((partner, index) => (
                 <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4 flex items-center justify-center overflow-visible">
-                  <Card className="bg-white/95 border border-orange-100 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-200 flex flex-col items-center justify-center p-10 min-h-[240px] w-full max-w-xs mx-auto">
+                  <Card className="bg-white border border-orange-100 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-200 flex flex-col items-center justify-center p-10 min-h-[240px] w-full max-w-xs mx-auto">
                     <img src={partnerImages[index % partnerImages.length]} alt={partner} className="w-24 h-24 object-cover rounded-2xl mb-6 shadow-md" />
                     <CardContent className="flex items-center justify-center w-full h-full p-0">
                       <div className="text-2xl font-bold text-gray-700 hover:text-primary transition-colors font-montserrat text-center w-full">
@@ -293,6 +251,12 @@ export default function Home() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
+           */}
+          <div className="flex flex-col items-center justify-center py-16">
+            {/* Modern filled lock icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-[#FFA600] mb-4" fill="#FFA600" viewBox="0 0 24 24"><path d="M17 8V7a5 5 0 00-10 0v1a3 3 0 00-3 3v7a3 3 0 003 3h10a3 3 0 003-3v-7a3 3 0 00-3-3zm-8-1a3 3 0 016 0v1H9zm10 11a1 1 0 01-1 1H5a1 1 0 01-1-1v-7a1 1 0 011-1h14a1 1 0 011 1v7z"/></svg>
+            <span className="text-xl md:text-2xl font-semibold text-gray-500 font-montserrat">Coming soon...</span>
+          </div>
         </div>
       </section>
 
