@@ -17,8 +17,11 @@ export function Header() {
   const [activeNav, setActiveNav] = useState("Home");
 
   const navigation = [
-    { name: "Home", href: "#top" },
-    { name: "Partners", href: "#partners" },
+    { name: "Home", href: "/" },
+    { name: "Partners", href: "/partners" },
+    { name: "About", href: "#about" },
+    {name: "Students", href: "/students"},
+    { name: "Agenda", href: "#agenda" },
     { name: "FAQs", href: "#faqs" },
     { name: "About", href: "#footer" },
   ];
