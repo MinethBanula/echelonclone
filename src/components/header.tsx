@@ -19,7 +19,6 @@ export function Header() {
   const navigation = [
     { name: "Home", href: "#top" },
     { name: "Partners", href: "#partners" },
-    { name: "Students", href: "#students" },
     { name: "FAQs", href: "#faqs" },
     { name: "About", href: "#footer" },
   ];
