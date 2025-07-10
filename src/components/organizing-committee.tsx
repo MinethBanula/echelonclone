@@ -57,7 +57,7 @@ export function OrganizingCommittee() {
           {committee.map((member, index) => (
             <Card
               key={index}
-              className="text-center hover:shadow-lg transition-shadow border-0 shadow-md group"
+              className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-200 hover:-translate-y-2 flex flex-col items-center text-center group"
             >
               <CardContent className="pt-8 pb-6">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
