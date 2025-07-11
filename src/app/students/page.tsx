@@ -116,7 +116,7 @@ return {
             Meet Our <span className="text-primary">Talented Students</span>
           </h1>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto">
-            EESPIRE showcases the brightest minds in electrical engineering.
+            ECHELON&apos;25 showcases the brightest minds in Mechanical engineering.
             Connect with our students to discover their skills, projects, and
             research interests.
           </p>
