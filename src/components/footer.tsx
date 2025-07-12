@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-14 px-4 shadow-2xl mt-8">
@@ -25,9 +27,9 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 font-montserrat underline underline-offset-4 decoration-white">Quick Links</h4>
             <div className="space-y-2 text-sm">
-              <a href="#top" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">Home</a>
+              <Link href="/" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">Home</Link>
               <a href="#partners" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">Partners</a>
-              <a href="#students" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">Students</a>
+              <a href="/students" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">Students</a>
               <a href="#faqs" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">FAQs</a>
               <a href="#footer" className="block hover:text-primary transition-colors font-montserrat text-white transition-transform duration-200 hover:scale-105">About</a>
             </div>
