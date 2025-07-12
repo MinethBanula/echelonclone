@@ -109,11 +109,11 @@ return {
 
         {/* Student Profiles Section */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white text-center mb-2">
+          <h2 className="text-4xl font-bold text-black text-center mb-2">
             Student Profiles
           </h2>
-          <p className="text-gray-400 text-center mb-8">
-            Browse through our electrical engineering talent showcase
+          <p className="text-gray-600 text-center mb-8">
+            Meet our department&apos;s talented students
           </p>
 
           {/* Grid Container */}
