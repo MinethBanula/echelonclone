@@ -79,7 +79,13 @@ export default function Home() {
               size="lg"
               className="rounded-full transition-all duration-200 hover:scale-105 border-primary text-primary hover:bg-[#FFA600] hover:text-white px-8 py-4 text-lg font-semibold font-montserrat shadow-lg"
             >
-              Partner Proposals
+              <Link
+                href="https://drive.google.com/file/d/15qtzUw6jl6__bvzOu1XpZad-XZYhxxtC/view"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Partner Proposals
+              </Link>
             </Button>
           </div>
         </div>
