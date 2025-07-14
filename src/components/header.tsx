@@ -35,14 +35,14 @@ export function Header() {
     const handleScroll = () => {
       // Only consider sections that are above the top of the viewport
       const visible = navigation.map((item) => {
-        const id = item.href.replace('#', '');
+        const id = item.href.replace("#", "");
         const el = document.getElementById(id);
         if (!el) return { name: item.name, top: Infinity };
         const rect = el.getBoundingClientRect();
         return { name: item.name, top: rect.top };
       });
       // Find the last section whose top is less than 120px from the top (header height + margin)
-      const current = visible.filter(v => v.top < 120).pop();
+      const current = visible.filter((v) => v.top < 120).pop();
       if (current && current.name !== activeNav) {
         setActiveNav(current.name);
       } else if (!current && activeNav !== "Home") {
@@ -80,7 +80,9 @@ export function Header() {
                   <NavigationMenuLink asChild>
                     <Link
                       href={item.href}
-                      className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 font-montserrat hover:text-[#FFA600] hover:scale-110 ${activeNav === item.name ? 'text-[#FFA600]' : ''} focus:outline-none focus:ring-0`}
+                      className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 font-montserrat hover:text-[#FFA600] hover:scale-110 ${
+                        activeNav === item.name ? "text-[#FFA600]" : ""
+                      } focus:outline-none focus:ring-0`}
                     >
                       {item.name}
                     </Link>
@@ -92,7 +94,13 @@ export function Header() {
 
           {/* CTA Button */}
           <Button className="hidden md:flex bg-primary hover:bg-[#FFA600] hover:text-white text-white font-montserrat rounded-full transition-all duration-200 hover:scale-105">
-            Register Now
+            <Link
+              href="https://fill.buildform.ai/forms/QEbpjwC2dHhf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register Now
+            </Link>
           </Button>
 
           {/* Mobile menu button */}
@@ -116,7 +124,9 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-4 py-2 text-sm font-medium font-montserrat rounded-md transition-all duration-200 hover:text-[#FFA600] hover:scale-110 ${activeNav === item.name ? 'text-[#FFA600]' : 'text-gray-700'} focus:outline-none focus:ring-0`}
+                  className={`px-4 py-2 text-sm font-medium font-montserrat rounded-md transition-all duration-200 hover:text-[#FFA600] hover:scale-110 ${
+                    activeNav === item.name ? "text-[#FFA600]" : "text-gray-700"
+                  } focus:outline-none focus:ring-0`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -134,4 +144,3 @@ export function Header() {
     </header>
   );
 }
-
