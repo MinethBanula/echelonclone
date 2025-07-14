@@ -10,8 +10,48 @@ import {
 import { OrganizingCommittee } from "@/components/organizing-committee";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import {
+  Card,
+  // CardContent, // Removed unused import
+} from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import React, { useState, useEffect } from "react";
+
+// Define partners and partnerImages arrays
+// const partners = [
+//   "Company A",
+//   "Company B",
+//   "Company C",
+//   "Company D",
+//   "Company E",
+//   "Company F",
+//   "Company G",
+//   "Company H",
+// ];
+const partnerImages = [
+  "/1.jpg",
+  "/2.jpg",
+  "/3.jpg",
+  "/4.jpg",
+  "/5.jpg",
+];
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   const faqs = [
     {
       question: "How do I register for ECHELON 25?",
@@ -41,11 +81,34 @@ export default function Home() {
   ];
 
   return (
+    <>
+      {loading && (
+        <div className="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+          <div className="text-center">
+            {/* Loading Spinner */}
+            <div className="relative mb-8">
+              <div className="w-16 h-16 border-4 border-gray-200 rounded-full animate-spin border-t-orange-500 mx-auto"></div>
+              <div className="absolute inset-0 w-16 h-16 border-4 border-transparent rounded-full animate-pulse border-t-orange-300 mx-auto opacity-50"></div>
+            </div>
+            {/* Loading Text */}
+            <div className="space-y-2">
+              <h2 className="text-2xl font-semibold text-gray-800 tracking-wide">
+                Loading
+              </h2>
+              <div className="flex justify-center space-x-1">
+                <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     <div id="top" className="min-h-screen bg-white">
       {/* Hero Section - Cleaner Design */}
       <div className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden pt-24 md:pt-32">
         <Image
-          src="/mech.jpeg"
+          src="/mech.jpg"
           alt="Mechanical Engineering Hero"
           fill
           className="object-cover w-full h-full"
@@ -346,182 +409,65 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-16 text-gray-800 font-montserrat">
             Explore a Range of Mechanical Engineering Disciplines
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Card 1 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/mech.jpeg"
-                alt="Robotics & Automation"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <rect
-                    x="2"
-                    y="7"
-                    width="20"
-                    height="10"
-                    rx="2"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                  <rect
-                    x="7"
-                    y="2"
-                    width="10"
-                    height="20"
-                    rx="2"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Robotics & Automation
-                </span>
+          {/* New fast auto-scrolling carousel of disciplines (HTML/CSS ported) */}
+          <div className="flex flex-col gap-8">
+            {/* First row: scroll left */}
+            <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
+              <div className="flex gap-6 min-w-max animate-scroll-left-fast">
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Aerospace and Aviation</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Automobile Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Biomedical and Sports Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Industrial Systems and Operations</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Maintenance Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Manufacturing and Production</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Mechatronic Systems and Control</span>
+                {/* Duplicate for seamless loop */}
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Aerospace and Aviation</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Automobile Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Biomedical and Sports Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Industrial Systems and Operations</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Maintenance Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Manufacturing and Production</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Mechatronic Systems and Control</span>
               </div>
             </div>
-            {/* Card 2 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/logo-banner.jpg"
-                alt="Manufacturing"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                  <path d="M8 16V8h8v8" stroke="#FFA600" strokeWidth="2" />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Manufacturing
-                </span>
-              </div>
-            </div>
-            {/* Card 3 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/mech.jpeg"
-                alt="Thermal & Fluid"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2v20M6 6l6 6 6-6"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Thermal & Fluid
-                </span>
-              </div>
-            </div>
-            {/* Card 4 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/logo-banner.jpg"
-                alt="Product Design"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <path
-                    d="M4 20l16-16M4 4h16v16H4V4z"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Product Design
-                </span>
-              </div>
-            </div>
-            {/* Card 5 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/mech.jpeg"
-                alt="Aerospace"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <path d="M2 12h20M12 2v20" stroke="#FFA600" strokeWidth="2" />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Aerospace
-                </span>
-              </div>
-            </div>
-            {/* Card 6 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/logo-banner.jpg"
-                alt="Biomedical"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2a10 10 0 100 20 10 10 0 000-20z"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                  <path d="M8 12h8M12 8v8" stroke="#FFA600" strokeWidth="2" />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Biomedical
-                </span>
-              </div>
-            </div>
-            {/* Card 7 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/mech.jpeg"
-                alt="Mechatronics"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <rect
-                    x="4"
-                    y="4"
-                    width="16"
-                    height="16"
-                    rx="4"
-                    stroke="#FFA600"
-                    strokeWidth="2"
-                  />
-                  <path d="M8 8h8v8H8V8z" stroke="#FFA600" strokeWidth="2" />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Mechatronics
-                </span>
-              </div>
-            </div>
-            {/* Card 8 */}
-            <div className="bg-gradient-to-br from-white via-gray-50 to-orange-50 border border-orange-100 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
-              <img
-                src="/logo-banner.jpg"
-                alt="Marine Engineering"
-                className="w-full h-40 object-cover rounded-t-2xl"
-              />
-              <div className="flex items-center gap-2 px-6 py-4">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                  <path d="M2 20h20M12 2v20" stroke="#FFA600" strokeWidth="2" />
-                </svg>
-                <span className="text-base font-semibold text-gray-800 font-montserrat">
-                  Marine Engineering
-                </span>
+            {/* Second row: scroll right */}
+            <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
+              <div className="flex gap-6 min-w-max animate-scroll-right-fast">
+                {/* Duplicate for seamless loop */}
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Naval Architecture and Marine Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Power and Energy</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Product Design and Development</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Project Management</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Robotics and Automation</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Thermal and Fluid Systems</span>
+                {/* Main set */}
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Naval Architecture and Marine Engineering</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Power and Energy</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Product Design and Development</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Project Management</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Robotics and Automation</span>
+                <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">Thermal and Fluid Systems</span>
               </div>
             </div>
           </div>
+
+          <style jsx>{`
+            @keyframes scroll-left-fast {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes scroll-right-fast {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
+            }
+            .animate-scroll-left-fast {
+              animation: scroll-left-fast 16s linear infinite;
+            }
+            .animate-scroll-right-fast {
+              animation: scroll-right-fast 20s linear infinite;
+            }
+          `}</style>
         </div>
       </section>
 
@@ -532,25 +478,66 @@ export default function Home() {
             Our Industry Partners
           </h2>
 
-          {/* <Carousel className="mb-16 max-w-7xl mx-auto py-16 overflow-visible" opts={{ loop: true }} plugins={[autoplay]}>
-            <CarouselContent className="overflow-visible">
-              {partners.map((partner, index) => (
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+            {/* Platinum Partner */}
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
+                <img
+                  src="/platinum.png"
+                  alt="Platinum Partner"
+                  className="object-contain w-full h-full"
+                />
+              </div>
+              <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center">Platinum Partner</span>
+            </div>
+            {/* Talent Partner */}
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
+                <img
+                  src="/talent.png"
+                  alt="Talent Partner"
+                  className="object-contain w-full h-full"
+                />
+              </div>
+              <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center">Talent Partner</span>
+            </div>
+          </div>
+
+          <Carousel
+            className="mb-16 max-w-7xl mx-auto py-16 overflow-visible"
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })]}
+          >
+            <CarouselContent className="overflow-visible bg-white">
+              {partnerImages.map((img, index) => (
                 <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4 flex items-center justify-center overflow-visible">
-                  <Card className="bg-white border border-orange-100 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-200 flex flex-col items-center justify-center p-10 min-h-[240px] w-full max-w-xs mx-auto">
-                    <img src={partnerImages[index % partnerImages.length]} alt={partner} className="w-24 h-24 object-cover rounded-2xl mb-6 shadow-md" />
-                    <CardContent className="flex items-center justify-center w-full h-full p-0">
-                      <div className="text-2xl font-bold text-gray-700 hover:text-primary transition-colors font-montserrat text-center w-full">
-                        {partner}
+                  <div className="w-full max-w-[200px] mx-auto min-h-[200px] aspect-square flex items-center justify-center">
+                    <Card
+                      className="w-full h-full aspect-square p-0 bg-white border-4 border-orange-200 overflow-hidden group"
+                    >
+                      <div className="w-full h-full aspect-square relative flex items-center justify-center">
+                        <img
+                          src={img}
+                          alt="Partner showcase"
+                          className="object-contain w-full h-full border-0"
+                          style={{ minHeight: '100%', minWidth: '100%' }}
+                        />
                       </div>
-                    </CardContent>
                   </Card>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <Link href="/partners">
+          {/* Replace broken Partner Proposals button with a correct external link button */}
+          <a
+            href="https://drive.google.com/file/d/15qtzUw6jl6__bvzOu1XpZad-XZYhxxtC/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
             <Button
               variant="outline"
               size="lg"
@@ -559,22 +546,9 @@ export default function Home() {
               Learn about partnership opportunities
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </Link>
-           */}
-          <div className="flex flex-col items-center justify-center py-16">
-            {/* Modern filled lock icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-16 w-16 text-[#FFA600] mb-4"
-              fill="#FFA600"
-              viewBox="0 0 24 24"
-            >
-              <path d="M17 8V7a5 5 0 00-10 0v1a3 3 0 00-3 3v7a3 3 0 003 3h10a3 3 0 003-3v-7a3 3 0 00-3-3zm-8-1a3 3 0 016 0v1H9zm10 11a1 1 0 01-1 1H5a1 1 0 01-1-1v-7a1 1 0 011-1h14a1 1 0 011 1v7z" />
-            </svg>
-            <span className="text-xl md:text-2xl font-semibold text-gray-500 font-montserrat">
-              Coming soon...
-            </span>
-          </div>
+          </a>
+          
+        
         </div>
       </section>
 
@@ -608,5 +582,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

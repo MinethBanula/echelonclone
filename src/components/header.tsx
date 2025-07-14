@@ -11,12 +11,13 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("Home");
   const pathname = usePathname();
+  const router = useRouter();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -54,6 +55,21 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeNav, navigation, pathname]);
 
+  // Helper to handle hash link navigation from /students
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#") && pathname !== "/") {
+      e.preventDefault();
+      router.push(`/${href}`);
+      setTimeout(() => {
+        const id = href.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 600); // Short delay for navigation
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md supports-[backdrop-filter]:bg-white/40 shadow-lg shadow-black/30 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4">
@@ -80,6 +96,7 @@ export function Header() {
                   <NavigationMenuLink asChild>
                     <Link
                       href={item.href}
+                      onClick={e => handleNavClick(e, item.href)}
                       className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 font-montserrat hover:text-[#FFA600] hover:scale-110 ${
                         activeNav === item.name ? "text-[#FFA600]" : ""
                       } focus:outline-none focus:ring-0`}
@@ -124,10 +141,10 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={e => { handleNavClick(e, item.href); setIsMenuOpen(false); }}
                   className={`px-4 py-2 text-sm font-medium font-montserrat rounded-md transition-all duration-200 hover:text-[#FFA600] hover:scale-110 ${
                     activeNav === item.name ? "text-[#FFA600]" : "text-gray-700"
                   } focus:outline-none focus:ring-0`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>

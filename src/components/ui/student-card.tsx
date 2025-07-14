@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 
@@ -26,6 +26,17 @@ export const StudentCard = ({
 }: StudentCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  // Close modal if FAQ link is clicked (hash changes to #faqs)
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === "#faqs") {
+        setShowModal(false);
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   const handleCardClick = () => {
     setShowModal(true);
@@ -175,18 +186,18 @@ export const StudentCard = ({
                 )} */}
                 <a
                   href={`mailto:${email}`}
-                  className="flex items-center justify-center px-7 py-3 bg-white hover:bg-gray-100 text-[#FFA600] rounded-full font-semibold text-base gap-2 shadow-orange-pop transform transition-all duration-200 hover:scale-105"
+                  className="flex items-center justify-center px-7 py-3 bg-[#FFA600] hover:bg-[#ffb733] text-white rounded-full font-semibold text-base gap-2 shadow-orange-pop transform transition-all duration-200 hover:scale-105"
                   style={{ boxShadow: '0 4px 20px 0 #FFA60066' }}
                 >
-                  <Mail className="w-5 h-5 mr-2 text-[#FFA600]" />
+                  <Mail className="w-5 h-5 mr-2 text-white" />
                   Send Email
                 </a>
                 <a
                   href={`tel:${phone}`}
-                  className="flex items-center justify-center px-7 py-3 bg-white hover:bg-gray-100 text-black rounded-full font-semibold text-base gap-2 shadow-orange-pop transform transition-all duration-200 hover:scale-105"
+                  className="flex items-center justify-center px-7 py-3 bg-[#FFA600] hover:bg-[#ffb733] text-white rounded-full font-semibold text-base gap-2 shadow-orange-pop transform transition-all duration-200 hover:scale-105"
                   style={{ boxShadow: '0 4px 20px 0 #FFA60066' }}
                 >
-                  <Phone className="w-5 h-5 mr-2 text-[#FFA600]" />
+                  <Phone className="w-5 h-5 mr-2 text-white" />
                   Call Now
                 </a>
               </div>
