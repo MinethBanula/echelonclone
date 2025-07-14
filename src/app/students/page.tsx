@@ -142,7 +142,7 @@ return {
                 phone={student.phone}
                 email={student.email}
                 description={student.description}
-                cv={student.cv}
+                // cv={student.cv}
               />
             ))}
           </div>

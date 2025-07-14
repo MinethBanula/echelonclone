@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Phone, Mail, FileText } from "lucide-react";
+import { X, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 
 // StudentCard Component
@@ -12,7 +12,7 @@ type StudentCardProps = {
   phone: string;
   email: string;
   description: string;
-  cv: string;
+  // cv: string;
 };
 
 export const StudentCard = ({
@@ -22,7 +22,7 @@ export const StudentCard = ({
   phone,
   email,
   description,
-  cv,
+  // cv,
 }: StudentCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
