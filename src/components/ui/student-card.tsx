@@ -161,7 +161,7 @@ export const StudentCard = ({
 
               {/* External Links */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                {cv && (
+                {/* {cv && (
                   <a
                     href={cv}
                     target="_blank"
@@ -172,7 +172,7 @@ export const StudentCard = ({
                     <FileText className="w-5 h-5" />
                     View CV
                   </a>
-                )}
+                )} */}
                 <a
                   href={`mailto:${email}`}
                   className="flex items-center justify-center px-7 py-3 bg-white hover:bg-gray-100 text-[#FFA600] rounded-full font-semibold text-base gap-2 shadow-orange-pop transform transition-all duration-200 hover:scale-105"
