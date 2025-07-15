@@ -628,17 +628,46 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="relative py-10 px-4 bg-white max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 font-montserrat mb-8">About</h2>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+          {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             <div className="w-full md:w-1/2 h-72 md:h-96 relative overflow-hidden rounded-2xl shadow-lg">
-              <div className="absolute inset-0 w-full h-full" style={{ backgroundAttachment: 'fixed', backgroundImage: 'url(/mech.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-              <img src="/mech.jpg" alt="About ECHELON 25" className="w-full h-full object-cover md:opacity-0" />
+              <div className="absolute inset-0 w-full h-full" style={{ backgroundAttachment: 'fixed', backgroundImage: 'url(/about.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <img src="/about.png" alt="About ECHELON 25" className="w-full h-full object-cover md:opacity-0" />
             </div>
             <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
               <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">ECHELON 25 is a premier event bringing together top mechanical engineering talent and leading industry partners for a day of networking, learning, and opportunity.</p>
               <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">Experience inspiring talks, hands-on sessions, and connect with future leaders in the field. Our mission is to bridge the gap between academia and industry, fostering innovation and collaboration.</p>
               <p className="text-gray-700 text-lg leading-relaxed font-montserrat">Join us to be part of a vibrant community shaping the future of mechanical engineering in Sri Lanka and beyond.</p>
             </div>
-          </div>
+          </div> */}
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+  {/* Image section with parallax and soft fade */}
+  <div className="w-full md:w-1/2 h-72 md:h-96 relative overflow-hidden rounded-2xl shadow-lg">
+    <div
+      className="absolute inset-0 w-full h-full bg-fixed bg-center bg-cover transition-transform scale-105 hover:scale-110 duration-700 ease-out"
+      style={{ backgroundImage: 'url(/about.jpeg)' }}
+    ></div>
+    <img
+      src="/about.jpeg"
+      alt="About ECHELON 25"
+      className="w-full h-full object-cover opacity-0 md:opacity-0"
+    />
+  </div>
+
+  {/* Text section */}
+  <div className="w-full md:w-1/2 flex flex-col items-start justify-center px-4">
+    <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-4">
+      <span className="font-bold text-[#FFA600]">ECHELON 25</span> is a premier event bringing together top mechanical engineering talent and leading industry partners for a day of networking, learning, and opportunity.
+    </p>
+    <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-4">
+      Experience inspiring talks, hands-on sessions, and connect with future leaders in the field. Our mission is to bridge the gap between academia and industry, fostering innovation and collaboration.
+    </p>
+    <p className="text-gray-700 text-lg leading-relaxed font-montserrat">
+      Join us to be part of a vibrant community shaping the future of mechanical engineering in Sri Lanka and beyond.
+    </p>
+  </div>
+</div>
+
         </section>
       </div>
     </>
