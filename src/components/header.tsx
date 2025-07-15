@@ -24,7 +24,7 @@ export function Header() {
     { name: "Partners", href: "#partners" },
     { name: "Students", href: "/students" },
     { name: "FAQs", href: "#faqs" },
-    { name: "About", href: "#footer" },
+    { name: "About", href: "#about" },
   ];
 
   useEffect(() => {

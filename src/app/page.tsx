@@ -119,7 +119,7 @@ export default function Home() {
       )}
       <div id="top" className="min-h-screen bg-white">
         {/* Hero Section - Cleaner Design */}
-        <div className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
           <Image
             src="/mech.jpg"
             alt="Mechanical Engineering Hero"
@@ -574,7 +574,7 @@ export default function Home() {
                 ))}
               </CarouselContent>
               {/* Removed CarouselPrevious and CarouselNext arrows */}
-              <span className="block mt-8 text-3xl font-bold text-gray-800 font-montserrat text-center">
+              <span className="block mt-8 mb-[-25] text-3xl font-bold text-gray-800 font-montserrat text-center">
                 Standard partners
               </span>
             </Carousel>
@@ -593,11 +593,6 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </a>
-            <div className="text-center max-w-xl mx-auto mb-0 mt-0">
-              <p className="text-gray-600 text-base leading-relaxed mb-1">This is a dummy paragraph for demonstration purposes.</p>
-              <p className="text-gray-600 text-base leading-relaxed mb-1">You can add more information about partnerships here.</p>
-              <p className="text-gray-600 text-base leading-relaxed">Contact us for more details and opportunities.</p>
-            </div>
           </div>
         </section>
 
@@ -639,7 +634,7 @@ export default function Home() {
               <img src="/mech.jpg" alt="About ECHELON 25" className="w-full h-full object-cover md:opacity-0" />
             </div>
             <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
-              <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">This is a dummy paragraph for the About section. ECHELON 25 is a premier event bringing together top mechanical engineering talent and leading industry partners for a day of networking, learning, and opportunity.</p>
+              <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">ECHELON 25 is a premier event bringing together top mechanical engineering talent and leading industry partners for a day of networking, learning, and opportunity.</p>
               <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">Experience inspiring talks, hands-on sessions, and connect with future leaders in the field. Our mission is to bridge the gap between academia and industry, fostering innovation and collaboration.</p>
               <p className="text-gray-700 text-lg leading-relaxed font-montserrat">Join us to be part of a vibrant community shaping the future of mechanical engineering in Sri Lanka and beyond.</p>
             </div>
