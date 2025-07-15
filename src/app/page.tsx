@@ -541,7 +541,7 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
               {/* Platinum Partner */}
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
                   <img
                     src="/platinum.png"
@@ -552,7 +552,21 @@ export default function Home() {
                 <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center">
                   Platinum Partner
                 </span>
+              </div> */}
+              <div className="flex flex-col items-center">
+                <div className="relative w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-[0_0_35px_rgba(255,215,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/platinum.png"
+                    alt="Platinum Partner"
+                    className="object-contain w-full h-full"
+                  />
+                  <div className="absolute inset-0 rounded-xl border-2 border-white/20 pointer-events-none" />
+                </div>
+                <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center tracking-wide">
+                  Platinum Partner
+                </span>
               </div>
+
               {/* Talent Partner */}
               <div className="flex flex-col items-center">
                 <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
