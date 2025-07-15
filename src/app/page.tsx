@@ -14,8 +14,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
 } from "@/components/ui/carousel";
 import {
   Card,
@@ -121,7 +119,7 @@ export default function Home() {
       )}
       <div id="top" className="min-h-screen bg-white">
         {/* Hero Section - Cleaner Design */}
-        <div className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden pt-24 md:pt-32">
+        <div className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden">
           <Image
             src="/mech.jpg"
             alt="Mechanical Engineering Hero"
@@ -130,7 +128,7 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-black/70 z-10" />
-          <div className="relative z-20 flex flex-col items-center justify-center w-full px-4 py-24">
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center w-full px-4">
             <h1 className="text-white text-4xl md:text-6xl font-bold text-center mb-6 drop-shadow-lg font-montserrat">
               Recruit the Nation&apos;s Top Mechanical Engineering Talent
             </h1>
@@ -170,7 +168,7 @@ export default function Home() {
         </div>
 
         {/* What is ECHELON 25 Section (moved up) */}
-        <section className="py-20 px-4">
+        <section className="py-10 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-col items-center">
               <Image
@@ -243,9 +241,9 @@ export default function Home() {
         </section>
 
         {/* Why Attend Section */}
-        <section className="py-20 px-4 bg-white">
+        <section className="py-10 px-4 bg-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-16 text-gray-800 font-montserrat">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-800 font-montserrat">
               Why Attend?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
@@ -420,271 +418,84 @@ export default function Home() {
         </section>
 
         {/* Explore Disciplines Section */}
-        <section className="py-20 px-4 bg-white">
+        <section className="py-10 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-16 text-gray-800 font-montserrat">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-800 font-montserrat">
               Explore a Range of Mechanical Engineering Disciplines
             </h2>
-            {/* New fast auto-scrolling carousel of disciplines (HTML/CSS ported) */}
             <div className="flex flex-col gap-8">
-              {/* First row: scroll left */}
+              {/* First row: scroll left, 5 items */}
               <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
-                <div className="flex gap-6 min-w-max animate-scroll-left-fast">
-                  {/* Aerospace and Aviation */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Plane className="w-6 h-6" />
-                    Aerospace and Aviation
-                  </span>
-
-                  {/* Automobile Engineering */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Car className="w-6 h-6" />
-                    Automobile Engineering
-                  </span>
-
-                  {/* Biomedical and Sports Engineering */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <HeartPulse className="w-6 h-6" />
-                    Biomedical and Sports Engineering
-                  </span>
-
-                  {/* Industrial Systems and Operations */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Factory className="w-6 h-6" />
-                    Industrial Systems and Operations
-                  </span>
-
-                  {/* Maintenance Engineering */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Wrench className="w-6 h-6" />
-                    Maintenance Engineering
-                  </span>
-
-                  {/* Manufacturing and Production */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Settings className="w-6 h-6" />
-                    Manufacturing and Production
-                  </span>
-
-                  {/* Mechatronic Systems and Control */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Cpu className="w-6 h-6" />
-                    Mechatronic Systems and Control
-                  </span>
-
+                <div className="flex gap-6 min-w-max animate-scroll-left-slow">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Plane className="w-6 h-6" />Aerospace and Aviation</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Car className="w-6 h-6" />Automobile Engineering</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><HeartPulse className="w-6 h-6" />Biomedical and Sports Engineering</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Factory className="w-6 h-6" />Industrial Systems and Operations</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Wrench className="w-6 h-6" />Maintenance Engineering</span>
                   {/* Duplicates for seamless loop */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Plane className="w-6 h-6" />
-                    Aerospace and Aviation
-                  </span>
-
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Car className="w-6 h-6" />
-                    Automobile Engineering
-                  </span>
-
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <HeartPulse className="w-6 h-6" />
-                    Biomedical and Sports Engineering
-                  </span>
-
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Factory className="w-6 h-6" />
-                    Industrial Systems and Operations
-                  </span>
-
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Wrench className="w-6 h-6" />
-                    Maintenance Engineering
-                  </span>
-
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Settings className="w-6 h-6" />
-                    Manufacturing and Production
-                  </span>
-
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Cpu className="w-6 h-6" />
-                    Mechatronic Systems and Control
-                  </span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Plane className="w-6 h-6" />Aerospace and Aviation</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Car className="w-6 h-6" />Automobile Engineering</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><HeartPulse className="w-6 h-6" />Biomedical and Sports Engineering</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Factory className="w-6 h-6" />Industrial Systems and Operations</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Wrench className="w-6 h-6" />Maintenance Engineering</span>
                 </div>
-                {/* <div className="flex gap-6 min-w-max animate-scroll-left-fast">
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Aerospace and Aviation
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Automobile Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Biomedical and Sports Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Industrial Systems and Operations
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Maintenance Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Manufacturing and Production
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Mechatronic Systems and Control
-                  </span> */}
-                {/* Duplicate for seamless loop */}
-                {/* <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Aerospace and Aviation
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Automobile Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Biomedical and Sports Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Industrial Systems and Operations
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Maintenance Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Manufacturing and Production
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Mechatronic Systems and Control
-                  </span>
-                </div> */}
               </div>
-              {/* Second row: scroll right */}
+              {/* Second row: scroll right, 4 items */}
               <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
-                <div className="flex gap-6 min-w-max animate-scroll-right-fast">
-                  {/* Duplicate for seamless loop */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Ship className="w-6 h-6" />
-                    Naval Architecture and Marine Engineering
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Zap className="w-6 h-6" />
-                    Power and Energy
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <PencilRuler className="w-6 h-6" />
-                    Product Design and Development
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <ClipboardList className="w-6 h-6" />
-                    Project Management
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Bot className="w-6 h-6" />
-                    Robotics and Automation
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Droplets className="w-6 h-6" />
-                    Thermal and Fluid Systems
-                  </span>
-
-                  {/* Main set */}
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Ship className="w-6 h-6" />
-                    Naval Architecture and Marine Engineering
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Zap className="w-6 h-6" />
-                    Power and Energy
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <PencilRuler className="w-6 h-6" />
-                    Product Design and Development
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <ClipboardList className="w-6 h-6" />
-                    Project Management
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Bot className="w-6 h-6" />
-                    Robotics and Automation
-                  </span>
-                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    <Droplets className="w-6 h-6" />
-                    Thermal and Fluid Systems
-                  </span>
-                  {/* Duplicate for seamless loop */}
-                  {/* <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Naval Architecture and Marine Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Power and Energy
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Product Design and Development
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Project Management
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Robotics and Automation
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Thermal and Fluid Systems
-                  </span> */}
-                  {/* Main set */}
-                  {/* <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Naval Architecture and Marine Engineering
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Power and Energy
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Product Design and Development
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Project Management
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Robotics and Automation
-                  </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
-                    Thermal and Fluid Systems
-                  </span> */}
+                <div className="flex gap-6 min-w-max animate-scroll-right-slow">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Settings className="w-6 h-6" />Manufacturing and Production</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Cpu className="w-6 h-6" />Mechatronic Systems and Control</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Ship className="w-6 h-6" />Naval Architecture and Marine Engineering</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Zap className="w-6 h-6" />Power and Energy</span>
+                  {/* Duplicates for seamless loop */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Settings className="w-6 h-6" />Manufacturing and Production</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Cpu className="w-6 h-6" />Mechatronic Systems and Control</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Ship className="w-6 h-6" />Naval Architecture and Marine Engineering</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Zap className="w-6 h-6" />Power and Energy</span>
+                </div>
+              </div>
+              {/* Third row: scroll left, 4 items */}
+              <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
+                <div className="flex gap-6 min-w-max animate-scroll-left-slow">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><PencilRuler className="w-6 h-6" />Product Design and Development</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><ClipboardList className="w-6 h-6" />Project Management</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Bot className="w-6 h-6" />Robotics and Automation</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Droplets className="w-6 h-6" />Thermal and Fluid Systems</span>
+                  {/* Duplicates for seamless loop */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><PencilRuler className="w-6 h-6" />Product Design and Development</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><ClipboardList className="w-6 h-6" />Project Management</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Bot className="w-6 h-6" />Robotics and Automation</span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat"><Droplets className="w-6 h-6" />Thermal and Fluid Systems</span>
                 </div>
               </div>
             </div>
-
             <style jsx>{`
-              @keyframes scroll-left-fast {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(-50%);
-                }
+              @keyframes scroll-left-slow {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
               }
-              @keyframes scroll-right-fast {
-                0% {
-                  transform: translateX(-50%);
-                }
-                100% {
-                  transform: translateX(0);
-                }
+              @keyframes scroll-right-slow {
+                0% { transform: translateX(-50%); }
+                100% { transform: translateX(0); }
               }
-              .animate-scroll-left-fast {
-                animation: scroll-left-fast 16s linear infinite;
+              .animate-scroll-left-slow {
+                animation: scroll-left-slow 48s linear infinite;
               }
-              .animate-scroll-right-fast {
-                animation: scroll-right-fast 20s linear infinite;
+              .animate-scroll-right-slow {
+                animation: scroll-right-slow 60s linear infinite;
               }
             `}</style>
           </div>
         </section>
 
         {/* Partners Teaser */}
-        <section id="partners" className="py-20 px-4 bg-white">
+        <section id="partners" className="py-4 px-4 bg-white mb-1">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800 font-montserrat">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800 font-montserrat">
               Our Industry Partners
             </h2>
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
               {/* Platinum Partner */}
               <div className="flex flex-col items-center">
                 <div className="relative w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-[0_0_35px_rgba(255,215,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105">
@@ -702,7 +513,7 @@ export default function Home() {
 
               {/* Talent Partner */}
               <div className="flex flex-col items-center">
-                <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
+                <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center" style={{ boxShadow: '0 0 60px 12px rgba(192,192,192,0.95)' }}>
                   <img
                     src="/talent.png"
                     alt="Talent Partner"
@@ -716,7 +527,7 @@ export default function Home() {
 
               {/* Bronze Partner */}
               <div className="flex flex-col items-center">
-                <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
+                <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center" style={{ boxShadow: '0 0 60px 12px rgba(192,192,192,0.95)' }}>
                   <img
                     src="/omega.jpg"
                     alt="Bronze Partner"
@@ -731,7 +542,7 @@ export default function Home() {
 
             {/* Standard partners */}
             <Carousel
-              className="mb-16 max-w-7xl mx-auto py-16 overflow-visible"
+              className="mb-10 max-w-7xl mx-auto py-10 overflow-visible"
               opts={{ loop: true }}
               plugins={[
                 Autoplay({
@@ -762,13 +573,11 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-              <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center">
+              {/* Removed CarouselPrevious and CarouselNext arrows */}
+              <span className="block mt-8 text-3xl font-bold text-gray-800 font-montserrat text-center">
                 Standard partners
               </span>
             </Carousel>
-            {/* Replace broken Partner Proposals button with a correct external link button */}
             <a
               href="https://drive.google.com/file/d/15qtzUw6jl6__bvzOu1XpZad-XZYhxxtC/view"
               target="_blank"
@@ -778,42 +587,62 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full transition-all duration-200 hover:scale-105 border-primary text-primary hover:bg-[#FFA600] hover:text-white font-montserrat font-semibold"
+                className="rounded-full transition-all duration-200 hover:scale-105 border-primary text-primary hover:bg-[#FFA600] hover:text-white font-montserrat font-semibold mb-4 mt-2"
               >
                 Learn about partnership opportunities
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </a>
+            <div className="text-center max-w-xl mx-auto mb-0 mt-0">
+              <p className="text-gray-600 text-base leading-relaxed mb-1">This is a dummy paragraph for demonstration purposes.</p>
+              <p className="text-gray-600 text-base leading-relaxed mb-1">You can add more information about partnerships here.</p>
+              <p className="text-gray-600 text-base leading-relaxed">Contact us for more details and opportunities.</p>
+            </div>
           </div>
         </section>
 
         {/* Organizing Committee */}
-        <section id="students">
+        <section id="students" className="py-4 mt-0">
           <OrganizingCommittee />
         </section>
 
         {/* FAQs Accordion */}
-        <section id="faqs" className="py-20 px-4 bg-white">
-          <div className="max-w-4xl mx-auto rounded-3xl border border-orange-100 shadow-xl p-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 font-montserrat">
+        <section id="faqs" className="py-2 px-4 bg-white">
+          <div className="max-w-4xl mx-auto p-0">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-black font-montserrat">
               Frequently Asked Questions
             </h2>
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="single" collapsible className="divide-y divide-orange-200 border border-orange-200 rounded-2xl bg-white/95 shadow-none">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border border-gray-200 rounded-xl px-6 bg-white/80 shadow-md hover:shadow-lg transition-shadow"
+                  className="border-none rounded-none px-0 bg-transparent shadow-none"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-gray-800 hover:text-primary font-montserrat text-lg">
+                  <AccordionTrigger className="text-left font-bold text-black font-montserrat text-lg py-5 px-4 hover:text-[#FFA600] focus:outline-none focus:text-[#FFA600] transition-colors border-l-4 border-transparent focus:border-[#FFA600]">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 leading-relaxed font-montserrat">
+                  <AccordionContent className="bg-white text-gray-800 leading-relaxed font-montserrat px-8 pb-6 pt-2 border-l-4 border-[#FFA600]">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+        {/* About Section */}
+        <section id="about" className="relative py-10 px-4 bg-white max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 font-montserrat mb-8">About</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="w-full md:w-1/2 h-72 md:h-96 relative overflow-hidden rounded-2xl shadow-lg">
+              <div className="absolute inset-0 w-full h-full" style={{ backgroundAttachment: 'fixed', backgroundImage: 'url(/mech.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <img src="/mech.jpg" alt="About ECHELON 25" className="w-full h-full object-cover md:opacity-0" />
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
+              <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">This is a dummy paragraph for the About section. ECHELON 25 is a premier event bringing together top mechanical engineering talent and leading industry partners for a day of networking, learning, and opportunity.</p>
+              <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-2">Experience inspiring talks, hands-on sessions, and connect with future leaders in the field. Our mission is to bridge the gap between academia and industry, fostering innovation and collaboration.</p>
+              <p className="text-gray-700 text-lg leading-relaxed font-montserrat">Join us to be part of a vibrant community shaping the future of mechanical engineering in Sri Lanka and beyond.</p>
+            </div>
           </div>
         </section>
       </div>

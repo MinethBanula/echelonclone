@@ -84,6 +84,8 @@ export const StudentCard = ({
           <p className="text-gray-800 text-sm leading-relaxed line-clamp-3">
             {specialization}
           </p>
+          {/* Mobile only: Click here for more details */}
+          <p className="block sm:hidden mt-4 text-[#FFA600] font-semibold text-base">Click here for more details</p>
         </div>
 
         {/* Orange Blur Overlay & Hover Overlay */}
