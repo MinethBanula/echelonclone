@@ -22,6 +22,21 @@ import {
   // CardContent, // Removed unused import
 } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import {
+  Plane,
+  Car,
+  HeartPulse,
+  Factory,
+  Wrench,
+  Settings,
+  Cpu,
+  Ship,
+  Zap,
+  PencilRuler,
+  ClipboardList,
+  Bot,
+  Droplets,
+} from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import React, { useState, useEffect } from "react";
 
@@ -36,7 +51,7 @@ import React, { useState, useEffect } from "react";
 //   "Company G",
 //   "Company H",
 // ];
-const partnerImages = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg"];
+const partnerImages = ["/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg"];
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -415,75 +430,186 @@ export default function Home() {
               {/* First row: scroll left */}
               <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
                 <div className="flex gap-6 min-w-max animate-scroll-left-fast">
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  {/* Aerospace and Aviation */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Plane className="w-6 h-6" />
                     Aerospace and Aviation
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Automobile Engineering */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Car className="w-6 h-6" />
                     Automobile Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Biomedical and Sports Engineering */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <HeartPulse className="w-6 h-6" />
                     Biomedical and Sports Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Industrial Systems and Operations */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Factory className="w-6 h-6" />
                     Industrial Systems and Operations
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Maintenance Engineering */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Wrench className="w-6 h-6" />
                     Maintenance Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Manufacturing and Production */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Settings className="w-6 h-6" />
                     Manufacturing and Production
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Mechatronic Systems and Control */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Cpu className="w-6 h-6" />
                     Mechatronic Systems and Control
                   </span>
-                  {/* Duplicate for seamless loop */}
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  {/* Duplicates for seamless loop */}
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Plane className="w-6 h-6" />
                     Aerospace and Aviation
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Car className="w-6 h-6" />
                     Automobile Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <HeartPulse className="w-6 h-6" />
                     Biomedical and Sports Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Factory className="w-6 h-6" />
                     Industrial Systems and Operations
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Wrench className="w-6 h-6" />
                     Maintenance Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Settings className="w-6 h-6" />
                     Manufacturing and Production
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Cpu className="w-6 h-6" />
                     Mechatronic Systems and Control
                   </span>
                 </div>
+                {/* <div className="flex gap-6 min-w-max animate-scroll-left-fast">
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Aerospace and Aviation
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Automobile Engineering
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Biomedical and Sports Engineering
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Industrial Systems and Operations
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Maintenance Engineering
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Manufacturing and Production
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Mechatronic Systems and Control
+                  </span> */}
+                {/* Duplicate for seamless loop */}
+                {/* <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Aerospace and Aviation
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Automobile Engineering
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Biomedical and Sports Engineering
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Industrial Systems and Operations
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Maintenance Engineering
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Manufacturing and Production
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Mechatronic Systems and Control
+                  </span>
+                </div> */}
               </div>
               {/* Second row: scroll right */}
               <div className="relative overflow-hidden w-screen left-1/2 right-1/2 -mx-[50vw]">
                 <div className="flex gap-6 min-w-max animate-scroll-right-fast">
                   {/* Duplicate for seamless loop */}
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Ship className="w-6 h-6" />
                     Naval Architecture and Marine Engineering
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Zap className="w-6 h-6" />
                     Power and Energy
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <PencilRuler className="w-6 h-6" />
                     Product Design and Development
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <ClipboardList className="w-6 h-6" />
                     Project Management
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Bot className="w-6 h-6" />
                     Robotics and Automation
                   </span>
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Droplets className="w-6 h-6" />
                     Thermal and Fluid Systems
                   </span>
+
                   {/* Main set */}
-                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Ship className="w-6 h-6" />
+                    Naval Architecture and Marine Engineering
+                  </span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Zap className="w-6 h-6" />
+                    Power and Energy
+                  </span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <PencilRuler className="w-6 h-6" />
+                    Product Design and Development
+                  </span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <ClipboardList className="w-6 h-6" />
+                    Project Management
+                  </span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Bot className="w-6 h-6" />
+                    Robotics and Automation
+                  </span>
+                  <span className="inline-flex items-center gap-3 rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    <Droplets className="w-6 h-6" />
+                    Thermal and Fluid Systems
+                  </span>
+                  {/* Duplicate for seamless loop */}
+                  {/* <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
                     Naval Architecture and Marine Engineering
                   </span>
                   <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
@@ -500,7 +626,26 @@ export default function Home() {
                   </span>
                   <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
                     Thermal and Fluid Systems
+                  </span> */}
+                  {/* Main set */}
+                  {/* <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Naval Architecture and Marine Engineering
                   </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Power and Energy
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Product Design and Development
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Project Management
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Robotics and Automation
+                  </span>
+                  <span className="inline-block rounded-full bg-[#FFA600] text-white font-bold text-lg md:text-2xl px-8 py-4 border-2 border-[#333] font-montserrat">
+                    Thermal and Fluid Systems
+                  </span> */}
                 </div>
               </div>
             </div>
@@ -541,18 +686,6 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
               {/* Platinum Partner */}
-              {/* <div className="flex flex-col items-center">
-                <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
-                  <img
-                    src="/platinum.png"
-                    alt="Platinum Partner"
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-                <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center">
-                  Platinum Partner
-                </span>
-              </div> */}
               <div className="flex flex-col items-center">
                 <div className="relative w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-[0_0_35px_rgba(255,215,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105">
                   <img
@@ -562,7 +695,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 rounded-xl border-2 border-white/20 pointer-events-none" />
                 </div>
-                <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center tracking-wide">
+                <span className="block mt-10 text-2xl font-bold text-gray-800 font-montserrat text-center tracking-wide">
                   Platinum Partner
                 </span>
               </div>
@@ -576,8 +709,22 @@ export default function Home() {
                     className="object-contain w-full h-full"
                   />
                 </div>
-                <span className="block mt-10 text-3xl font-bold text-gray-800 font-montserrat text-center">
+                <span className="block mt-10 text-2xl font-bold text-gray-800 font-montserrat text-center">
                   Talent Partner
+                </span>
+              </div>
+
+              {/* Bronze Partner */}
+              <div className="flex flex-col items-center">
+                <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/omega.jpg"
+                    alt="Bronze Partner"
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <span className="block mt-10 text-2xl font-bold text-gray-800 font-montserrat text-center">
+                  Bronze Partner
                 </span>
               </div>
             </div>
