@@ -503,6 +503,7 @@ export default function Home() {
             </div>
           </div>
 
+            {/* Standard partners */}
           <Carousel
             className="mb-16 max-w-7xl mx-auto py-16 overflow-visible"
             opts={{ loop: true }}
