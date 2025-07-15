@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, Phone, Mail } from "lucide-react";
+import { X, Phone, Mail, Linkedin   } from "lucide-react";
 import Image from "next/image";
 
 // StudentCard Component
@@ -13,6 +13,7 @@ type StudentCardProps = {
   email: string;
   description: string;
   // cv: string;
+  linkdin: string;
 };
 
 export const StudentCard = ({
@@ -23,6 +24,7 @@ export const StudentCard = ({
   email,
   description,
   // cv,
+  linkdin,
 }: StudentCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -172,6 +174,18 @@ export const StudentCard = ({
 
               {/* External Links */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                {linkdin && (
+                  <a
+                    href={linkdin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-7 py-3 bg-[#FFA600] hover:bg-[#ffb733] text-white rounded-full font-semibold text-base gap-2 shadow-orange-pop transform transition-all duration-200 hover:scale-105"
+                    style={{ boxShadow: '0 4px 20px 0 #FFA60066' }}
+                  >
+                    <Linkedin  className="w-5 h-5" />
+                    Linkdin
+                  </a>
+                )}
                 {/* {cv && (
                   <a
                     href={cv}

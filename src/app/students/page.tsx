@@ -54,6 +54,7 @@ return {
   email: rowData["personal gmail address"] || "",
   description: rowData["brief introduction h"] || "",
   cv: rowData["cv"] || "",
+  linkdin: rowData["linkedin"] || "",
 };
 
   });
@@ -143,6 +144,7 @@ return {
                 email={student.email}
                 description={student.description}
                 // cv={student.cv}
+                linkdin={student.linkdin}
               />
             ))}
           </div>
