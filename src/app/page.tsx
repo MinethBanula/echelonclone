@@ -36,7 +36,7 @@ import {
   Droplets,
 } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // Define partners and partnerImages arrays
 // const partners = [
@@ -49,7 +49,7 @@ import React, { useState, useEffect } from "react";
 //   "Company G",
 //   "Company H",
 // ];
-const partnerImages = ["/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg"];
+const partnerImages = ["/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg", "/6.jpg", "/7.jpg", "/8.jpg"];
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
         </div>
       )}
-      <div id="top" className="min-h-screen bg-white">
+      <div id="top" className="min-h-screen bg-white overflow-x-hidden">
         {/* Hero Section - Cleaner Design */}
         <div className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
           <Image
@@ -498,11 +498,12 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
               {/* Platinum Partner */}
               <div className="flex flex-col items-center">
-                <div className="relative w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-[0_0_35px_rgba(255,215,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                <div className="relative w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-[0_0_40px_10px_rgba(255,165,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105">
                   <img
                     src="/platinum.png"
                     alt="Platinum Partner"
-                    className="object-contain w-full h-full"
+                    style={{ width: "60%", height: "60%" }}
+                    className="object-contain mx-auto"
                   />
                   <div className="absolute inset-0 rounded-xl border-2 border-white/20 pointer-events-none" />
                 </div>
@@ -510,7 +511,21 @@ export default function Home() {
                   Platinum Partner
                 </span>
               </div>
-
+              {/* Gold Partner */}
+              <div className="flex flex-col items-center">
+                <div className="relative w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105" style={{ boxShadow: '0 0 60px 12px rgba(192,192,192,0.95)' }}>
+                  <img
+                    src="/gold.png"
+                    alt="Gold Partner"
+                    style={{ width: "60%", height: "60%" }}
+                    className="object-contain mx-auto"
+                  />
+                  <div className="absolute inset-0 rounded-xl border-2 border-white/20 pointer-events-none" />
+                </div>
+                <span className="block mt-10 text-2xl font-bold text-gray-800 font-montserrat text-center tracking-wide">
+                  Gold Partner
+                </span>
+              </div>
               {/* Talent Partner */}
               <div className="flex flex-col items-center">
                 <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center" style={{ boxShadow: '0 0 60px 12px rgba(192,192,192,0.95)' }}>
@@ -524,7 +539,6 @@ export default function Home() {
                   Talent Partner
                 </span>
               </div>
-
               {/* Bronze Partner */}
               <div className="flex flex-col items-center">
                 <div className="w-full max-w-[200px] min-h-[200px] aspect-square bg-white border-4 border-orange-300 shadow-2xl rounded-xl overflow-hidden flex items-center justify-center" style={{ boxShadow: '0 0 60px 12px rgba(192,192,192,0.95)' }}>
@@ -642,18 +656,7 @@ export default function Home() {
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
   {/* Image section with parallax and soft fade */}
-  <div className="w-full md:w-1/2 h-72 md:h-96 relative overflow-hidden rounded-2xl shadow-lg">
-    <div
-      className="absolute inset-0 w-full h-full bg-fixed bg-center bg-cover transition-transform scale-105 hover:scale-110 duration-700 ease-out"
-      style={{ backgroundImage: 'url(/about.jpeg)' }}
-    ></div>
-    <img
-      src="/about.jpeg"
-      alt="About ECHELON 25"
-      className="w-full h-full object-cover opacity-0 md:opacity-0"
-    />
-  </div>
-
+  <ParallaxImageBox />
   {/* Text section */}
   <div className="w-full md:w-1/2 flex flex-col items-start justify-center px-4">
     <p className="text-gray-700 text-lg leading-relaxed font-montserrat mb-4">
@@ -671,5 +674,62 @@ export default function Home() {
         </section>
       </div>
     </>
+  );
+}
+
+function ParallaxImageBox() {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    
+    const handleScroll = () => {
+      if (!imgRef.current || !containerRef.current) return;
+      
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate scroll progress relative to when element enters/exits viewport
+      const elementTop = rect.top;
+      const elementBottom = rect.bottom;
+      
+      // Only apply parallax when element is in viewport
+      if (elementBottom >= 0 && elementTop <= windowHeight) {
+        // Calculate parallax offset based on scroll position
+        const scrollProgress = (windowHeight - elementTop) / (windowHeight + rect.height);
+        const parallaxOffset = (scrollProgress - 0.5) * 100; // Further increased multiplier for a much stronger effect
+        
+        imgRef.current.style.transform = `translateY(${parallaxOffset}px)`;
+      }
+    };
+    
+    const onScroll = () => {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(handleScroll);
+    };
+    
+    window.addEventListener("scroll", onScroll, { passive: true });
+    handleScroll(); // Initial position
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full md:w-1/2 h-72 md:h-96 relative overflow-hidden rounded-2xl shadow-lg">
+      <img
+        ref={imgRef}
+        src="/about.jpeg"
+        alt="About ECHELON 25"
+        className="w-full h-full absolute left-0 top-0 object-cover"
+        style={{ 
+          transform: 'translateY(0px)',
+          transition: 'transform 0.1s ease-out'
+        }}
+      />
+    </div>
   );
 }
