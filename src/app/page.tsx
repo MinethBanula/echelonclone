@@ -49,7 +49,7 @@ import React, { useState, useEffect, useRef } from "react";
 //   "Company G",
 //   "Company H",
 // ];
-const partnerImages = ["/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg", "/6.jpg", "/7.jpg", "/8.jpg"];
+const partnerImages = ["/2.png", "/3.jpg", "/4.jpg", "/5.jpg", "/6.jpg", "/7.jpg", "/8.jpg"];
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
